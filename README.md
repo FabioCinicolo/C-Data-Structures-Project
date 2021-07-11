@@ -1,6 +1,6 @@
 # C-Data-Structures-Project
 
-Data Structures implemented:
+**Data Structures implemented:**
 - Vector
 - List
 - Stack (list and vector implementation)
