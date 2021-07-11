@@ -10,12 +10,8 @@
 - Matrix (*Vector and Column Sparse Row implementation*)
 - Graph : *Coming soon*
 
-**Binary Tree Forward Iterators implemented:**
-- Breadth First
-- Pre Order
-- In Order
-- Post Order
 ***
+Link to class diagram: 
 
 
 
