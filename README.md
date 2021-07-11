@@ -1,5 +1,5 @@
 # C-Data-Structures-Project
-***
+
 **Data Structures implemented:**
 - Vector
 - List
@@ -15,6 +15,8 @@
 - Pre Order
 - In Order
 - Post Order
+***
+
 
 
 
