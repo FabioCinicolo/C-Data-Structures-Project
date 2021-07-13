@@ -6,12 +6,9 @@
 
 #include "../container/container.hpp"
 typedef unsigned long ulong;
-/* ************************************************************************** */
 
 namespace lasd
 {
-
-  /* ************************************************************************** */
 
   template <typename Data>
   class Vector : virtual public LinearContainer<Data>,
