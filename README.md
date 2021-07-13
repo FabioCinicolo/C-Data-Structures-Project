@@ -10,8 +10,6 @@
 - Matrix (*Vector and Column Sparse Row implementation*)
 - Graph : *Coming soon*
 
-***
-Link to class diagram: 
 
 
 
