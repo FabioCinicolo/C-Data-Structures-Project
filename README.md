@@ -1,6 +1,7 @@
 # Cpp-Data-Structures-Project
 
 **Data Structures implemented:**
+
 - Vector
 - List
 - Stack (*list and vector implementation*)
@@ -10,7 +11,9 @@
 - Matrix (*Vector and Column Sparse Row implementation*)
 - Graph : *Coming soon*
 ***
+
 **Vector**
+
 - Default constructor
 - Specific constructor with size as parameter
 - Specific constructor with a linear container as parameter
@@ -25,7 +28,9 @@
 - Operator[]
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
+- 
 **List**
+
 - Default constructor
 - Specific constructor with linear container as parameter
 - Copy and move constructor
@@ -42,7 +47,9 @@
 - operator[]
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
+- 
 **Stack**
+
 - Default constructor
 - Specific constructor with linear container as parameter
 - Copy and move constructor
@@ -54,7 +61,9 @@
 - TopNPop
 - Pop
 - Clear
+- 
 **Queue**
+
 - Default constructor
 - Specific constructor with linear container as parameter
 - Copy and move constructors
@@ -66,7 +75,9 @@
 - HeadNDequeue
 - Head
 - Clear
+- 
 **Binary Tree Node**
+
 -Constructor
 -Destructor
 -Copy and move assignment
@@ -74,7 +85,9 @@
 -Element (const and non const version)
 -HasLeftChild, HasRightChild, IsLeaf
 -LeftChild, RightChild
+
 **Binary Tree**
+
 - Default constructor
 - Specific constructor with linear container as parameter
 - Copy and move constructor
@@ -84,7 +97,9 @@
 - Root
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
+- 
 **Iterators over Binary Trees: Breadth first, Pre Order, In Order, Post Order**
+
 - Specific onstructor with binary tree as parameter
 - Specific constructor with iterator as parameter
 - Copy and move constructor
@@ -94,7 +109,9 @@
 - operator*
 - operator++
 - Terminated
+- 
 **Binary Search Tree**
+
 - Default constructor
 - Specific constructor with linear container as parameter
 - Copy and move constructor
@@ -118,7 +135,9 @@
 - Exists
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
+- 
 **Matrix**
+
 - Constructor (parameters depend on type of implementation)
 - Copy and move constructor
 - Destructor
