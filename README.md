@@ -28,7 +28,7 @@
 - Operator[]
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
-- 
+
 **List**
 
 - Default constructor
@@ -47,7 +47,7 @@
 - operator[]
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
-- 
+
 **Stack**
 
 - Default constructor
@@ -61,7 +61,7 @@
 - TopNPop
 - Pop
 - Clear
-- 
+ 
 **Queue**
 
 - Default constructor
@@ -75,7 +75,7 @@
 - HeadNDequeue
 - Head
 - Clear
-- 
+ 
 **Binary Tree Node**
 
 -Constructor
@@ -97,7 +97,7 @@
 - Root
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
-- 
+ 
 **Iterators over Binary Trees: Breadth first, Pre Order, In Order, Post Order**
 
 - Specific onstructor with binary tree as parameter
@@ -109,7 +109,7 @@
 - operator*
 - operator++
 - Terminated
-- 
+ 
 **Binary Search Tree**
 
 - Default constructor
@@ -135,7 +135,7 @@
 - Exists
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
-- 
+ 
 **Matrix**
 
 - Constructor (parameters depend on type of implementation)
