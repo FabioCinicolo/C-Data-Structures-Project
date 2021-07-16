@@ -78,13 +78,13 @@
  
 **Binary Tree Node**
 
--Constructor
--Destructor
--Copy and move assignment
--Comparison operators
--Element (const and non const version)
--HasLeftChild, HasRightChild, IsLeaf
--LeftChild, RightChild
+- Constructor
+- Destructor
+- Copy and move assignment
+- Comparison operators
+- Element (const and non const version)
+- HasLeftChild, HasRightChild, IsLeaf
+- LeftChild, RightChild
 
 **Binary Tree**
 
