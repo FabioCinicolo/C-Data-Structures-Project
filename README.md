@@ -11,19 +11,19 @@
 - Graph : *Coming soon*
 ***
 **Vector**
--Default constructor
--Specific constructor with size as parameter
--Specific constructor with a linear container as parameter
--Copy and move constructor
--Destructor
--Copy and move assignment
--Resize
--Clear
--Front
--Back
--Operator[]
--MapPreOrder, MapPostOrder
--FoldPreOrder, FoldPostOrder
+- Default constructor
+- Specific constructor with size as parameter
+- Specific constructor with a linear container as parameter
+- Copy and move constructor
+- Destructor
+- Copy and move assignment
+- Resize
+- Clear
+- Front
+- Back
+- Operator[]
+- MapPreOrder, MapPostOrder
+- FoldPreOrder, FoldPostOrder
 
 
 
