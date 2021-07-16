@@ -44,7 +44,7 @@
 - Clear
 - Front
 - Back
-- operator[]
+- Operator[]
 - MapPreOrder, MapPostOrder
 - FoldPreOrder, FoldPostOrder
 
