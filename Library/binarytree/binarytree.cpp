@@ -437,7 +437,7 @@ namespace lasd
     BTInOrderIterator<Data>::BTInOrderIterator(const BinaryTree<Data> &btree)
     {
         if (!btree.Empty())
-            LeftMostNode(&btree.Root());
+            UpdateCurrWithLeftMostNode(&btree.Root());
     }
 
     template <typename Data>
@@ -518,13 +518,13 @@ namespace lasd
         }
         else
         {
-            LeftMostNode(&node->RightChild());
+            UpdateCurrWithLeftMostNode(&node->RightChild());
         }
         return *this;
     }
 
     template <typename Data>
-    void BTInOrderIterator<Data>::LeftMostNode(typename BinaryTree<Data>::Node *rt)
+    void BTInOrderIterator<Data>::UpdateCurrWithLeftMostNode(typename BinaryTree<Data>::Node *rt)
     {
         node = rt;
         while (node->HasLeftChild())
@@ -539,7 +539,7 @@ namespace lasd
     BTPostOrderIterator<Data>::BTPostOrderIterator(const BinaryTree<Data> &btree)
     {
         if (!btree.Empty())
-            LeftMostLeaf(&btree.Root());
+            UpdateCurrWithLeftMostLeaf(&btree.Root());
     }
 
     template <typename Data>
@@ -600,9 +600,6 @@ namespace lasd
         return node == nullptr;
     }
 
-    //Se lo stack non e' vuoto e il top ha figlio destro, allora se stiamo salendo da destra il curr sara il topnpop, se stiamo salendo da sinistra allora il curr sara la leftmostleaf del destro di stack.top
-    //Se il top non ha figlio destro il curr sara il topnpop
-    //Se lo stak e' vuoto allora curr sara nullptr
     template <typename Data>
     BTPostOrderIterator<Data> &BTPostOrderIterator<Data>::operator++()
     {
@@ -636,7 +633,7 @@ namespace lasd
     }
 
     template <typename Data>
-    void BTPostOrderIterator<Data>::LeftMostLeaf(typename BinaryTree<Data>::Node *rt)
+    void BTPostOrderIterator<Data>::UpdateCurrWithLeftMostLeaf(typename BinaryTree<Data>::Node *rt)
     {
         node = rt;
         while (!node->IsLeaf())
