@@ -15,7 +15,7 @@ namespace lasd
 
   template <typename Data>
   class Matrix : virtual public MappableContainer<Data>, virtual public FoldableContainer<Data>
-  { // Must extend MappableContainer<Data> and FoldableContainer<Data>
+  { 
 
   private:
     // ...
