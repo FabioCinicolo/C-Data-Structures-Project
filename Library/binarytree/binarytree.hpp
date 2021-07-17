@@ -10,7 +10,7 @@
 
 #include "../queue/lst/queuelst.hpp"
 #include "../stack/lst/stacklst.hpp"
-typedef unsigned long ulong;
+
 /* ************************************************************************** */
 
 namespace lasd
@@ -241,7 +241,7 @@ namespace lasd
   protected:
     typename BinaryTree<Data>::Node *node = nullptr;
     StackLst<typename BinaryTree<Data>::Node *> stack;
-    void LeftMostLeaf(typename BinaryTree<Data>::Node *);
+    void UpdateCurrWithLeftMostLeaf(typename BinaryTree<Data>::Node *);
 
   public:
     // Specific constructors
@@ -302,7 +302,7 @@ namespace lasd
     //LeftMostNode
     typename BinaryTree<Data>::Node *node = nullptr;
     StackLst<typename BinaryTree<Data>::Node *> stack;
-    void LeftMostNode(typename BinaryTree<Data>::Node *);
+    void UpdateCurrWithLeftMostNode(typename BinaryTree<Data>::Node *);
 
   public:
     // Specific constructors
