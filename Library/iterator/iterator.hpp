@@ -130,8 +130,7 @@ public:
 /* ************************************************************************** */
 
 template <typename Data>
-class BidirectionalIterator { // Must extend ForwardIterator and BackwardIterator
-
+class BidirectionalIterator : virtual public ForwardIterator<Data>, virtual public BackwardIterator<Data>{
 private:
 
   // ...
