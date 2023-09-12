@@ -2,16 +2,10 @@
 #ifndef BINARYTREELNK_HPP
 #define BINARYTREELNK_HPP
 
-/* ************************************************************************** */
-
 #include "../binarytree.hpp"
-
-/* ************************************************************************** */
 
 namespace lasd
 {
-
-  /* ************************************************************************** */
 
   template <typename Data>
   class BinaryTreeLnk : virtual public BinaryTree<Data>
@@ -46,19 +40,15 @@ namespace lasd
     };
     using BinaryTree<Data>::size;
     NodeLnk *root = nullptr;
-    NodeLnk* InsertLevelOrder(const LinearContainer<Data> &, NodeLnk *, ulong, ulong);
+    NodeLnk *InsertLevelOrder(const LinearContainer<Data> &, NodeLnk *, ulong, ulong);
     NodeLnk *GetRootFromCopyInOrder(NodeLnk *);
 
   public:
     // Default constructor
     BinaryTreeLnk() = default;
 
-    /* ************************************************************************ */
-
-    //Specific constructors
+    // Specific constructors
     BinaryTreeLnk(const LinearContainer<Data> &); // A binary tree obtained from a LinearContainer
-
-    /* ************************************************************************ */
 
     // Copy constructor
     BinaryTreeLnk(const BinaryTreeLnk &);
@@ -66,12 +56,8 @@ namespace lasd
     // Move constructor
     BinaryTreeLnk(BinaryTreeLnk &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Destructor
     virtual ~BinaryTreeLnk();
-
-    /* ************************************************************************ */
 
     // Copy assignment
     BinaryTreeLnk &operator=(const BinaryTreeLnk &);
@@ -79,26 +65,18 @@ namespace lasd
     // Move assignment
     BinaryTreeLnk &operator=(BinaryTreeLnk &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const BinaryTreeLnk &) const noexcept;
     inline bool operator!=(const BinaryTreeLnk &) const noexcept;
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from BinaryTree)
 
     NodeLnk &Root() const override; // Override BinaryTree member (throw std::length_error when empty)
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from Container)
 
     void Clear() override; // Override Container member
   };
-
-  /* ************************************************************************** */
 
 }
 

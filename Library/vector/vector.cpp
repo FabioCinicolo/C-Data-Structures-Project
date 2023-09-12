@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     // Specific constructors
     template <typename Data>
     Vector<Data>::Vector(const ulong newsize)
@@ -23,9 +21,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
-    //Copy constructor
+    // Copy constructor
     template <typename Data>
     Vector<Data>::Vector(const Vector<Data> &vec)
     {
@@ -34,7 +30,7 @@ namespace lasd
         size = vec.size;
     }
 
-    //Move constructor
+    // Move constructor
     template <typename Data>
     Vector<Data>::Vector(Vector<Data> &&vec) noexcept
     {
@@ -42,18 +38,14 @@ namespace lasd
         std::swap(size, vec.size);
     }
 
-    /* ************************************************************************** */
-
-    //Destructor
+    // Destructor
     template <typename Data>
     Vector<Data>::~Vector()
     {
         delete[] Elements;
     }
 
-    /* ************************************************************************** */
-
-    //Copy assignement
+    // Copy assignement
     template <typename Data>
     Vector<Data> &Vector<Data>::operator=(const Vector<Data> &vec)
     {
@@ -63,7 +55,7 @@ namespace lasd
         return *this;
     }
 
-    //Move assignement
+    // Move assignement
     template <typename Data>
     Vector<Data> &Vector<Data>::operator=(Vector<Data> &&vec) noexcept
     {
@@ -72,9 +64,7 @@ namespace lasd
         return *this;
     }
 
-    /* ************************************************************************** */
-
-    //Comparison operators
+    // Comparison operators
     template <typename Data>
     bool Vector<Data>::operator==(const Vector<Data> &vec) const noexcept
     {
@@ -101,9 +91,7 @@ namespace lasd
         return !(*this == vec);
     }
 
-    /* ************************************************************************** */
-
-    //Specific member functions
+    // Specific member functions
     template <typename Data>
     void Vector<Data>::Resize(const ulong newsize)
     {
@@ -125,9 +113,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
-    //Specific member functions (inherited from Container)
+    // Specific member functions (inherited from Container)
     template <typename Data>
     void Vector<Data>::Clear()
     {
@@ -136,9 +122,7 @@ namespace lasd
         size = 0;
     }
 
-    /* ************************************************************************** */
-
-    //Specific member functions (inherited from LinearContainer)
+    // Specific member functions (inherited from LinearContainer)
 
     template <typename Data>
     Data &Vector<Data>::Front() const
@@ -179,8 +163,6 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
     template <typename Data>
     void Vector<Data>::MapPreOrder(const MapFunctor fun, void *par)
     {
@@ -199,8 +181,6 @@ namespace lasd
             fun(Elements[--index], par);
         }
     }
-
-    /* ************************************************************************** */
 
     // Specific member functions (inherited from FoldableContainer)
     template <typename Data>

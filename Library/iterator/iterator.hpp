@@ -2,175 +2,130 @@
 #ifndef ITERATOR_HPP
 #define ITERATOR_HPP
 typedef unsigned long ulong;
-/* ************************************************************************** */
 
-namespace lasd {
+namespace lasd
+{
 
-/* ************************************************************************** */
+  template <typename Data>
+  class Iterator
+  {
 
-template <typename Data>
-class Iterator {
+  private:
+    // ...
 
-private:
+  protected:
+    // ...
 
-  // ...
+  public:
+    // Destructor
+    virtual ~Iterator() = default;
 
-protected:
+    // Copy assignment
+    Iterator &operator=(const Iterator &) = delete; // Copy assignment of abstract types should not be possible.
 
-  // ...
+    // Move assignment
+    Iterator &operator=(Iterator &&) noexcept = delete; // Move assignment of abstract types should not be possible.
 
-public:
+    // Comparison operators
+    bool operator==(const Iterator &) const noexcept = delete;        // Comparison of abstract types might not be possible.
+    inline bool operator!=(const Iterator &) const noexcept = delete; // Comparison of abstract types might not be possible.
 
-  // Destructor
-  virtual ~Iterator() = default;
+    // Specific member functions
 
-  /* ************************************************************************ */
+    virtual Data &operator*() const = 0; // (concrete function must throw std::out_of_range when terminated)
 
-  // Copy assignment
-  Iterator& operator=(const Iterator&) = delete; // Copy assignment of abstract types should not be possible.
+    virtual bool Terminated() const noexcept = 0; // (concrete function should not throw exceptions)
+  };
 
-  // Move assignment
-  Iterator& operator=(Iterator&&) noexcept = delete; // Move assignment of abstract types should not be possible.
+  template <typename Data>
+  class ForwardIterator : virtual public Iterator<Data>
+  {
 
-  /* ************************************************************************ */
+  private:
+    // ...
 
-  // Comparison operators
-  bool operator==(const Iterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
-  inline bool operator!=(const Iterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
+  protected:
+    // ...
 
-  /* ************************************************************************ */
+  public:
+    // Destructor
+    virtual ~ForwardIterator() = default;
 
-  // Specific member functions
+    // Copy assignment
+    ForwardIterator &operator=(const ForwardIterator &) = delete; // Copy assignment of abstract types should not be possible.
 
-  virtual Data& operator*()const = 0; // (concrete function must throw std::out_of_range when terminated)
+    // Move assignment
+    ForwardIterator &operator=(ForwardIterator &&) = delete; // Move assignment of abstract types should not be possible.
 
-  virtual bool Terminated() const noexcept = 0; // (concrete function should not throw exceptions)
+    // Comparison operators
+    bool operator==(const ForwardIterator &) const noexcept = delete;        // Comparison of abstract types might not be possible.
+    inline bool operator!=(const ForwardIterator &) const noexcept = delete; // Comparison of abstract types might not be possible.
 
-};
+    // Specific member functions
 
-/* ************************************************************************** */
+    virtual ForwardIterator &operator++() = 0; // (concrete function must throw std::out_of_range when terminated)
+  };
 
-template <typename Data>
-class ForwardIterator : virtual public Iterator<Data>{
+  template <typename Data>
+  class BackwardIterator : virtual public Iterator<Data>
+  {
 
-private:
+  private:
+    // ...
 
-  // ...
+  protected:
+    // ...
 
-protected:
+  public:
+    // Destructor
+    virtual ~BackwardIterator() = default;
 
-  // ...
+    // Copy assignment
+    BackwardIterator &operator=(const BackwardIterator &) = delete; // Copy assignment of abstract types should not be possible.
 
-public:
+    // Move assignment
+    BackwardIterator &operator=(BackwardIterator &&) = delete; // Move assignment of abstract types should not be possible.
 
-  // Destructor
-  virtual ~ForwardIterator() = default;
+    // Comparison operators
+    bool operator==(const BackwardIterator &) const noexcept = delete;        // Comparison of abstract types might not be possible.
+    inline bool operator!=(const BackwardIterator &) const noexcept = delete; // Comparison of abstract types might not be possible.
 
-  /* ************************************************************************ */
+    // Specific member functions
 
-  // Copy assignment
-  ForwardIterator& operator=(const ForwardIterator&) = delete; // Copy assignment of abstract types should not be possible.
+    virtual BackwardIterator &operator++() = 0; // (concrete function must throw std::out_of_range when terminated)
+  };
 
-  // Move assignment
-  ForwardIterator& operator=(ForwardIterator&&) = delete; // Move assignment of abstract types should not be possible.
+  template <typename Data>
+  class BidirectionalIterator : virtual public ForwardIterator<Data>, virtual public BackwardIterator<Data>
+  {
+  private:
+    // ...
 
-  /* ************************************************************************ */
+  protected:
+    // ...
 
-  // Comparison operators
-  bool operator==(const ForwardIterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
-  inline bool operator!=(const ForwardIterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
+  public:
+    // Destructor
+    virtual ~BidirectionalIterator() = default;
 
-  /* ************************************************************************ */
+    // Copy assignment
+    BidirectionalIterator &operator=(const BidirectionalIterator &) = delete; // Copy assignment of abstract types should not be possible.
 
-  // Specific member functions
+    // Move assignment
+    BidirectionalIterator &operator=(BidirectionalIterator &&) = delete; // Move assignment of abstract types should not be possible.
 
-  virtual ForwardIterator& operator++() = 0; // (concrete function must throw std::out_of_range when terminated)
+    // Comparison operators
+    bool operator==(const BidirectionalIterator &) const noexcept = delete;        // Comparison of abstract types might not be possible.
+    inline bool operator!=(const BidirectionalIterator &) const noexcept = delete; // Comparison of abstract types might not be possible.
 
-};
+    // Specific member functions
 
-/* ************************************************************************** */
+    bool Terminated() const noexcept override; // (concrete function should not throw exceptions)
 
-template <typename Data>
-class BackwardIterator : virtual public Iterator<Data>{ 
+    bool ForwardTerminated() const noexcept; // (concrete function should not throw exceptions)
 
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
-  // Destructor
-  virtual ~BackwardIterator() = default;
-
-  /* ************************************************************************ */
-
-   // Copy assignment
-  BackwardIterator& operator=(const BackwardIterator&) = delete; // Copy assignment of abstract types should not be possible.
-
-  // Move assignment
-  BackwardIterator& operator=(BackwardIterator&&) = delete; // Move assignment of abstract types should not be possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  bool operator==(const BackwardIterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
-  inline bool operator!=(const BackwardIterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
-
-  /* ************************************************************************ */
-
-  // Specific member functions
-
-  virtual BackwardIterator& operator++() = 0; // (concrete function must throw std::out_of_range when terminated)
-};
-
-/* ************************************************************************** */
-
-template <typename Data>
-class BidirectionalIterator : virtual public ForwardIterator<Data>, virtual public BackwardIterator<Data>{
-private:
-
-  // ...
-
-protected:
-
-  // ...
-
-public:
-
- // Destructor
-  virtual ~BidirectionalIterator() = default;
-
-  /* ************************************************************************ */
-
-   // Copy assignment
-  BidirectionalIterator& operator=(const BidirectionalIterator&) = delete; // Copy assignment of abstract types should not be possible.
-
-  // Move assignment
-  BidirectionalIterator& operator=(BidirectionalIterator&&) = delete; // Move assignment of abstract types should not be possible.
-
-  /* ************************************************************************ */
-
-  // Comparison operators
-  bool operator==(const BidirectionalIterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
-  inline bool operator!=(const BidirectionalIterator&) const noexcept = delete; // Comparison of abstract types might not be possible.
-
-  /* ************************************************************************ */
-
-  // Specific member functions
-
-  bool Terminated() const noexcept override; // (concrete function should not throw exceptions)
-
-  bool ForwardTerminated() const noexcept; // (concrete function should not throw exceptions)
-
-  bool BackwardTerminated() const noexcept; // (concrete function should not throw exceptions)
-
-};
-
-/* ************************************************************************** */
+    bool BackwardTerminated() const noexcept; // (concrete function should not throw exceptions)
+  };
 
 }
 

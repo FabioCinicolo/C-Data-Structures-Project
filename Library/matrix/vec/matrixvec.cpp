@@ -2,9 +2,7 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
-    //Specific Costructor
+    // Specific Costructor
     template <typename Data>
     MatrixVec<Data>::MatrixVec(const ulong &r, const ulong &c) : Vector<Data>::Vector(r * c)
     {
@@ -12,7 +10,7 @@ namespace lasd
         cols = c;
     }
 
-    //Copy costructor
+    // Copy costructor
 
     template <typename Data>
     MatrixVec<Data>::MatrixVec(const MatrixVec<Data> &mat) : Vector<Data>::Vector(mat)
@@ -21,7 +19,7 @@ namespace lasd
         cols = mat.cols;
     }
 
-    //Move costructor
+    // Move costructor
 
     template <typename Data>
     MatrixVec<Data>::MatrixVec(MatrixVec<Data> &&mat) noexcept : Vector<Data>::Vector(std::move(mat))
@@ -30,7 +28,7 @@ namespace lasd
         std::swap(cols, mat.cols);
     }
 
-    //Copy assignment
+    // Copy assignment
 
     template <typename Data>
     MatrixVec<Data> &MatrixVec<Data>::operator=(const MatrixVec<Data> &mat)
@@ -41,7 +39,7 @@ namespace lasd
         return *this;
     }
 
-    //Move assignment
+    // Move assignment
 
     template <typename Data>
     MatrixVec<Data> &MatrixVec<Data>::operator=(MatrixVec<Data> &&mat) noexcept
@@ -52,7 +50,7 @@ namespace lasd
         return *this;
     }
 
-    //Comparison operators
+    // Comparison operators
 
     template <typename Data>
     bool MatrixVec<Data>::operator==(const MatrixVec<Data> &mat) const noexcept
@@ -66,7 +64,7 @@ namespace lasd
         return !(*this == mat);
     }
 
-    //Row resize
+    // Row resize
 
     template <typename Data>
     void MatrixVec<Data>::RowResize(const ulong &new_row_size)
@@ -82,7 +80,7 @@ namespace lasd
         rows = new_row_size;
     }
 
-    //Column resize
+    // Column resize
 
     template <typename Data>
     void MatrixVec<Data>::ColumnResize(const ulong &new_col_size)
@@ -126,7 +124,7 @@ namespace lasd
         }
     }
 
-    //Operator() (const)
+    // Operator() (const)
 
     template <typename Data>
     const Data &MatrixVec<Data>::operator()(const ulong &row, const ulong &col) const
@@ -138,7 +136,7 @@ namespace lasd
         throw std::out_of_range("Out of range.");
     }
 
-    //Operator() (not const)
+    // Operator() (not const)
 
     template <typename Data>
     Data &MatrixVec<Data>::operator()(const ulong &row, const ulong &col)
@@ -146,7 +144,7 @@ namespace lasd
         return const_cast<Data &>(static_cast<const MatrixVec<Data> *>(this)->operator()(row, col));
     }
 
-    //Clear
+    // Clear
 
     template <typename Data>
     void MatrixVec<Data>::Clear()
@@ -156,13 +154,11 @@ namespace lasd
         cols = 0;
     }
 
-    //Exists
+    // Exists
     template <typename Data>
     inline bool MatrixVec<Data>::ExistsCell(const ulong &row, const ulong &col) const noexcept
     {
         return ((row < rows) && (col < cols));
     }
-
-    /* ************************************************************************** */
 
 }

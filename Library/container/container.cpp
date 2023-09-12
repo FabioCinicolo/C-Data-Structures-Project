@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     // Specific member functions (SearchableContainer)
 
     template <typename Data>
@@ -23,7 +21,5 @@ namespace lasd
         FoldPreOrder(&AuxFoldExists<Data>, &dat, &exists);
         return exists;
     }
-
-    /* ************************************************************************** */
 
 }

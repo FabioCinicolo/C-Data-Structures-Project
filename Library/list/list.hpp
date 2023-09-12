@@ -2,16 +2,11 @@
 #ifndef LIST_HPP
 #define LIST_HPP
 typedef unsigned long ulong;
-/* ************************************************************************** */
 
 #include "../container/container.hpp"
 
-/* ************************************************************************** */
-
 namespace lasd
 {
-
-  /* ************************************************************************** */
 
   template <typename Data>
   class List : virtual public LinearContainer<Data>,
@@ -30,14 +25,11 @@ namespace lasd
       Data data;
       Node *nextptr = nullptr;
 
-      /* ********************************************************************** */
-      //Default constructor
+      // Default constructor
       Node() = default;
 
       // Specific constructor
       Node(const Data &);
-
-      /* ********************************************************************** */
 
       // Copy constructor
       Node(const Node &);
@@ -45,17 +37,12 @@ namespace lasd
       // Move constructor
       Node(Node &&) noexcept;
 
-      /* ********************************************************************** */
-
       // Destructor
       virtual ~Node();
-
-      /* ********************************************************************** */
 
       // Comparison operators
       bool operator==(const Node &) const noexcept;
       inline bool operator!=(const Node &) const noexcept;
-      /* ********************************************************************** */
 
       // Specific member functions
 
@@ -69,12 +56,9 @@ namespace lasd
   public:
     // Default constructor
     List() = default;
-    /* ************************************************************************ */
 
     // Specific constructor
     List(const LinearContainer<Data> &); // A list obtained from a LinearContainer
-
-    /* ************************************************************************ */
 
     // Copy constructor
     List(const List &);
@@ -82,11 +66,8 @@ namespace lasd
     // Move constructor
     List(List &&) noexcept;
 
-    /* ************************************************************************ */
     // Destructor
     virtual ~List();
-
-    /* ************************************************************************ */
 
     // Copy assignment
     List &operator=(const List &);
@@ -94,13 +75,9 @@ namespace lasd
     // Move assignment
     List &operator=(List &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const List &) const noexcept;
     inline bool operator!=(const List &) const noexcept;
-
-    /* ************************************************************************ */
 
     // Specific member functions
     void InsertAtFront(const Data &);     // Copy of the value
@@ -111,13 +88,9 @@ namespace lasd
     void InsertAtBack(const Data &);     // Copy of the value
     void InsertAtBack(Data &&) noexcept; // Move of the value
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from Container)
 
     void Clear() override; // Override Container member
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from LinearContainer)
 
@@ -126,16 +99,12 @@ namespace lasd
 
     Data &operator[](const ulong) const override; // Override LinearContainer member (must throw std::out_of_range when out of range)
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from MappableContainer)
 
     using typename MappableContainer<Data>::MapFunctor;
 
     void MapPreOrder(const MapFunctor, void *) override;  // Override MappableContainer member
     void MapPostOrder(const MapFunctor, void *) override; // Override MappableContainer member
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from FoldableContainer)
 
@@ -149,15 +118,11 @@ namespace lasd
     // type MapPreOrder(arguments) specifiers; // Accessory function executing from one point of the list onwards
     // type MapPostOrder(arguments) specifiers; // Accessory function executing from one point of the list onwards
 
-    /* ************************************************************************ */
-
     // Auxiliary member functions (for FoldableContainer)
 
     // type FoldPreOrder(arguments) specifiers; // Accessory function executing from one point of the list onwards
     // type FoldPostOrder(arguments) specifiers; // Accessory function executing from one point of the list onwards
   };
-
-  /* ************************************************************************** */
 
 }
 

@@ -3,7 +3,6 @@
 
 namespace lasd
 {
-    /* ************************************************************************** */
     template <typename Data>
     bool BinaryTree<Data>::Node::operator==(const BinaryTree<Data>::Node &node) const noexcept
     {
@@ -250,7 +249,7 @@ namespace lasd
         }
     }
 
-    //BREADTH ITERATOR
+    // BREADTH ITERATOR
 
     template <typename Data>
     BTBreadthIterator<Data>::BTBreadthIterator(const BinaryTree<Data> &btree)
@@ -343,7 +342,7 @@ namespace lasd
         return *this;
     }
 
-    //PRE ORDER ITERATOR
+    // PRE ORDER ITERATOR
 
     template <typename Data>
     BTPreOrderIterator<Data>::BTPreOrderIterator(const BinaryTree<Data> &btree)
@@ -432,7 +431,7 @@ namespace lasd
         return *this;
     }
 
-    //IN ORDER ITERATOR
+    // IN ORDER ITERATOR
     template <typename Data>
     BTInOrderIterator<Data>::BTInOrderIterator(const BinaryTree<Data> &btree)
     {
@@ -534,7 +533,7 @@ namespace lasd
         }
     }
 
-    //POST ORDER ITERATOR
+    // POST ORDER ITERATOR
     template <typename Data>
     BTPostOrderIterator<Data>::BTPostOrderIterator(const BinaryTree<Data> &btree)
     {
@@ -613,7 +612,7 @@ namespace lasd
 
             if (stack.Top()->HasRightChild())
             {
-                if (node == &stack.Top()->RightChild()) //Siamo arrivati ad una foglia
+                if (node == &stack.Top()->RightChild()) // A leaf is reached
                     node = stack.TopNPop();
                 else
                 {
@@ -651,4 +650,3 @@ namespace lasd
         }
     }
 }
-/* ************************************************************************** */

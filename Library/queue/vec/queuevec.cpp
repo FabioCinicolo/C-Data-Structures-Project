@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     // Specific constructor
     template <typename Data>
     QueueVec<Data>::QueueVec(const LinearContainer<Data> &con) : Vector<Data>::Vector(con)
@@ -34,7 +32,7 @@ namespace lasd
         }
     }
 
-    //Move costructor
+    // Move costructor
     template <typename Data>
     QueueVec<Data>::QueueVec(QueueVec<Data> &&queue) noexcept : Vector<Data>::Vector(std::move(queue))
     {
@@ -42,7 +40,7 @@ namespace lasd
         std::swap(rear, queue.rear);
     }
 
-    //Copy assignment
+    // Copy assignment
     template <typename Data>
     QueueVec<Data> &QueueVec<Data>::operator=(const QueueVec<Data> &queue)
     {
@@ -52,7 +50,7 @@ namespace lasd
         return *this;
     }
 
-    //Move assignment
+    // Move assignment
     template <typename Data>
     QueueVec<Data> &QueueVec<Data>::operator=(QueueVec<Data> &&queue) noexcept
     {
@@ -62,7 +60,7 @@ namespace lasd
         return *this;
     }
 
-    //Comparison operators
+    // Comparison operators
     template <typename Data>
     bool QueueVec<Data>::operator==(const QueueVec<Data> &queue) const noexcept
     {
@@ -97,7 +95,7 @@ namespace lasd
         return !(*this == queue);
     }
 
-    //Enqueue
+    // Enqueue
     template <typename Data>
     void QueueVec<Data>::Enqueue(const Data &dat)
     {
@@ -140,7 +138,7 @@ namespace lasd
         std::swap(Elements[rear], dat);
     }
 
-    //Head
+    // Head
 
     template <typename Data>
     Data &QueueVec<Data>::Head() const
@@ -152,7 +150,7 @@ namespace lasd
         return Elements[front];
     }
 
-    //Dequeue
+    // Dequeue
 
     template <typename Data>
     void QueueVec<Data>::Dequeue()
@@ -176,7 +174,7 @@ namespace lasd
         }
     }
 
-    //HeadNDequeue
+    // HeadNDequeue
 
     template <typename Data>
     Data QueueVec<Data>::HeadNDequeue()
@@ -193,7 +191,7 @@ namespace lasd
         }
     }
 
-    //Check emptiness
+    // Check emptiness
     template <typename Data>
     inline bool QueueVec<Data>::Empty() const noexcept
     {
@@ -206,7 +204,7 @@ namespace lasd
         return ((rear + 1) % size == front);
     }
 
-    //Size
+    // Size
     template <typename Data>
     ulong QueueVec<Data>::Size() const noexcept
     {
@@ -216,7 +214,7 @@ namespace lasd
             return 0;
     }
 
-    //Resize
+    // Resize
     template <typename Data>
     void QueueVec<Data>::Resize(const ulong &newsize)
     {
@@ -242,5 +240,4 @@ namespace lasd
         rear = -1;
     }
 
-    /* ************************************************************************** */
 }

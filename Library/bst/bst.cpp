@@ -2,7 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
     //Specific costructor
     template <typename Data>
     BST<Data>::BST(const LinearContainer<Data> &con)
@@ -232,7 +231,6 @@ namespace lasd
     }
 
     //Exists
-
     template <typename Data>
     bool BST<Data>::Exists(const Data &data) const noexcept
     {
@@ -240,7 +238,6 @@ namespace lasd
     }
 
     //Auxiliary protected functions
-
     template <typename Data>
     Data BST<Data>::DataNDelete(NodeLnk *rt)
     {
@@ -265,7 +262,7 @@ namespace lasd
             }
             else
             {
-                NodeLnk *minptr = DetachMin(rt->rightptr); //Errore 1 Libreria 4(fixato) [Facevo DetachMin(rt)].
+                NodeLnk *minptr = DetachMin(rt->rightptr);
                 std::swap(rt->value, minptr->value);
                 return minptr;
             }
@@ -433,6 +430,5 @@ namespace lasd
         }
         return suxcand;
     }
-    /* ************************************************************************** */
 
 }

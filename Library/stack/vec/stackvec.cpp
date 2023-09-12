@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     //Specific costructor
     template <typename Data>
     StackVec<Data>::StackVec(const LinearContainer<Data> &con) : Vector<Data>::Vector(con)
@@ -176,7 +174,5 @@ namespace lasd
     }
 
     // Auxiliary member functions
-
-    /* ************************************************************************** */
 
 }

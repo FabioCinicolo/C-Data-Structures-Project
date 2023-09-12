@@ -2,27 +2,25 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     // Specific costructor
     template <typename Data>
     StackLst<Data>::StackLst(const LinearContainer<Data> &con) : List<Data>::List(con)
     {
     }
 
-    //Copy costructor
+    // Copy costructor
     template <typename Data>
     StackLst<Data>::StackLst(const StackLst<Data> &stack) : List<Data>::List(stack)
     {
     }
 
-    //Move costructor
+    // Move costructor
     template <typename Data>
     StackLst<Data>::StackLst(StackLst<Data> &&stack) noexcept : List<Data>::List(std::move(stack))
     {
     }
 
-    //Copy assignement
+    // Copy assignement
     template <typename Data>
     StackLst<Data> &StackLst<Data>::operator=(const StackLst<Data> &stack)
     {
@@ -30,14 +28,14 @@ namespace lasd
         return *this;
     }
 
-    //Move assignement
+    // Move assignement
     template <typename Data>
     StackLst<Data> &StackLst<Data>::operator=(StackLst<Data> &&stack) noexcept
     {
         List<Data>::operator=(std::move(stack));
         return *this;
     }
-    //Comparison operators
+    // Comparison operators
     template <typename Data>
     bool StackLst<Data>::operator==(const StackLst<Data> &stack) const noexcept
     {
@@ -50,7 +48,7 @@ namespace lasd
         return !(*this == stack);
     }
 
-    //Specific member functions (inherited from Stack)
+    // Specific member functions (inherited from Stack)
 
     template <typename Data>
     void StackLst<Data>::Push(const Data &dat)
@@ -88,5 +86,4 @@ namespace lasd
         List<Data>::Clear();
     }
 
-    /* ************************************************************************** */
 }

@@ -2,9 +2,7 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
-    //Default costructor
+    // Default costructor
     template <typename Data>
     MatrixCSR<Data>::MatrixCSR()
     {
@@ -12,7 +10,7 @@ namespace lasd
         rowsvec[0] = &head;
     }
 
-    //Specific costructor
+    // Specific costructor
     template <typename Data>
     MatrixCSR<Data>::MatrixCSR(const ulong &r, const ulong &c)
     {
@@ -25,7 +23,7 @@ namespace lasd
         }
     }
 
-    //Copy costructor
+    // Copy costructor
     template <typename Data>
     MatrixCSR<Data>::MatrixCSR(const MatrixCSR<Data> &mat) : MatrixCSR<Data>(mat.rows, mat.cols)
     {
@@ -41,7 +39,7 @@ namespace lasd
         }
     }
 
-    //Move costructor
+    // Move costructor
     template <typename Data>
     MatrixCSR<Data>::MatrixCSR(MatrixCSR<Data> &&mat) noexcept : MatrixCSR<Data>()
     {
@@ -57,14 +55,14 @@ namespace lasd
         mat.rowsvec[0] = &mat.head;
     }
 
-    //Destructor
+    // Destructor
     template <typename Data>
     MatrixCSR<Data>::~MatrixCSR()
     {
         List<std::pair<Data, ulong>>::Clear();
     }
 
-    //Copy assignment
+    // Copy assignment
     template <typename Data>
     MatrixCSR<Data> &MatrixCSR<Data>::operator=(const MatrixCSR<Data> &mat)
     {
@@ -88,7 +86,7 @@ namespace lasd
         return *this;
     }
 
-    //Move assignment
+    // Move assignment
     template <typename Data>
     MatrixCSR<Data> &MatrixCSR<Data>::operator=(MatrixCSR<Data> &&mat) noexcept
     {
@@ -108,7 +106,7 @@ namespace lasd
         return *this;
     }
 
-    //Comparison operators
+    // Comparison operators
     template <typename Data>
     bool MatrixCSR<Data>::operator==(const MatrixCSR<Data> &mat) const noexcept
     {
@@ -152,7 +150,7 @@ namespace lasd
         return !(*this == mat);
     }
 
-    //Row resize
+    // Row resize
     template <typename Data>
     void MatrixCSR<Data>::RowResize(const ulong &new_row_size)
     {
@@ -188,7 +186,7 @@ namespace lasd
         rows = new_row_size;
     }
 
-    //Column resize
+    // Column resize
     template <typename Data>
     void MatrixCSR<Data>::ColumnResize(const ulong &new_col_size)
     {
@@ -234,7 +232,7 @@ namespace lasd
         cols = new_col_size;
     }
 
-    //Exists cell
+    // Exists cell
     template <typename Data>
     bool MatrixCSR<Data>::ExistsCell(const ulong &r, const ulong &c) const noexcept
     {
@@ -251,7 +249,7 @@ namespace lasd
         return false;
     }
 
-    //Operator() (non const)
+    // Operator() (non const)
     template <typename Data>
     Data &MatrixCSR<Data>::operator()(const ulong &r, const ulong &c)
     {
@@ -279,7 +277,7 @@ namespace lasd
             new_node->nextptr = &(**node);
         }
         *node = new_node;
-        if (node == rowsvec[r + 1]) //Inserisco in riga vuota oppure alla fine
+        if (node == rowsvec[r + 1]) // Inserisco in riga vuota oppure alla fine
         {
             ulong i = 0;
             Node **copy = rowsvec[r + 1];
@@ -294,7 +292,7 @@ namespace lasd
         return new_node->data.first;
     }
 
-    //Operator() (const)
+    // Operator() (const)
     template <typename Data>
     const Data &MatrixCSR<Data>::operator()(const ulong &r, const ulong &c) const
     {
@@ -312,7 +310,7 @@ namespace lasd
         throw std::length_error("Length error.");
     }
 
-    //Clear (from Container)
+    // Clear (from Container)
     template <typename Data>
     void MatrixCSR<Data>::Clear()
     {
@@ -323,7 +321,7 @@ namespace lasd
         cols = 0;
     }
 
-    //Map functions (pre, post) inherited from MappableContainer
+    // Map functions (pre, post) inherited from MappableContainer
     template <typename Data>
     void MatrixCSR<Data>::MapPreOrder(const MapFunctor fun, void *par)
     {
@@ -340,7 +338,7 @@ namespace lasd
                                                    par);
     }
 
-    //Fold functions (pre, post) inherited from FoldableContainer
+    // Fold functions (pre, post) inherited from FoldableContainer
     template <typename Data>
     void MatrixCSR<Data>::FoldPreOrder(const FoldFunctor fun, const void *par, void *acc) const
     {
@@ -357,5 +355,4 @@ namespace lasd
                                                     par, acc);
     }
 
-    /* ************************************************************************** */
 }

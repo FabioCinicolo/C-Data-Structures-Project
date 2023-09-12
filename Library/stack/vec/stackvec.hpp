@@ -2,17 +2,11 @@
 #ifndef STACKVEC_HPP
 #define STACKVEC_HPP
 
-/* ************************************************************************** */
-
 #include "../stack.hpp"
 #include "../../vector/vector.hpp"
 
-/* ************************************************************************** */
-
 namespace lasd
 {
-
-  /* ************************************************************************** */
 
   template <typename Data>
   class StackVec : public virtual Stack<Data>, protected virtual Vector<Data>
@@ -30,12 +24,8 @@ namespace lasd
     // Default constructor
     StackVec() = default;
 
-    /* ************************************************************************ */
-
     // Specific constructor
     StackVec(const LinearContainer<Data> &); // A stack obtained from a LinearContainer
-
-    /* ************************************************************************ */
 
     // Copy constructor
     StackVec(const StackVec &);
@@ -43,12 +33,8 @@ namespace lasd
     // Move constructor
     StackVec(StackVec &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Destructor
     virtual ~StackVec() = default;
-
-    /* ************************************************************************ */
 
     // Copy assignment
     StackVec &operator=(const StackVec &);
@@ -56,13 +42,9 @@ namespace lasd
     // Move assignment
     StackVec &operator=(StackVec &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const StackVec &) const noexcept;
     inline bool operator!=(const StackVec &) const noexcept;
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from Stack)
 
@@ -71,8 +53,6 @@ namespace lasd
     Data &Top() const override;           // Override Stack member (must throw std::length_error when empty)
     void Pop() override;                  // Override Stack member (must throw std::length_error when empty)
     Data TopNPop() override;              // Override Stack member (must throw std::length_error when empty)
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from Container)
 
@@ -84,8 +64,6 @@ namespace lasd
 
   protected:
   };
-
-  /* ************************************************************************** */
 
 }
 

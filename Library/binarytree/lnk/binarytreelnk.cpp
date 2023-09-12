@@ -1,9 +1,6 @@
 
 namespace lasd
 {
-
-    /* ************************************************************************** */
-    //NODE LNK
     template <typename Data>
     Data &BinaryTreeLnk<Data>::NodeLnk::Element() noexcept
     {
@@ -67,7 +64,7 @@ namespace lasd
         delete rightptr;
     }
 
-    //BINARY TREE LNK
+    // BINARY TREE LNK
     template <typename Data>
     BinaryTreeLnk<Data>::BinaryTreeLnk(const LinearContainer<Data> &con)
     {
@@ -95,7 +92,7 @@ namespace lasd
     BinaryTreeLnk<Data>::BinaryTreeLnk(const BinaryTreeLnk<Data> &btree)
     {
         size = btree.size;
-        if (size != 0) //Errore 2 Libreria 4(fixato).
+        if (size != 0) // Errore 2 Libreria 4(fixato).
         {
             root = GetRootFromCopyInOrder(&btree.Root());
         }
@@ -179,6 +176,5 @@ namespace lasd
             root = nullptr;
         }
     }
-    /* ************************************************************************** */
 
 }

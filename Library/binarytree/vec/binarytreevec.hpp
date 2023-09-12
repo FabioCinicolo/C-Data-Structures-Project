@@ -2,12 +2,8 @@
 #ifndef BINARYTREEVEC_HPP
 #define BINARYTREEVEC_HPP
 
-/* ************************************************************************** */
-
 #include "../binarytree.hpp"
 #include "../../vector/vector.hpp"
-
-/* ************************************************************************** */
 
 namespace lasd
 {
@@ -30,6 +26,7 @@ namespace lasd
       Data value;
       ulong index = 0;
       Vector<NodeVec *> *vecptr = nullptr;
+
     public:
       NodeVec(const Data &, const ulong &, Vector<NodeVec *> *);
       virtual ~NodeVec() = default;
@@ -48,12 +45,8 @@ namespace lasd
     // Default constructor
     BinaryTreeVec() = default;
 
-    /* ************************************************************************ */
-
     // Specific constructors
     BinaryTreeVec(const LinearContainer<Data> &); // A binary tree obtained from a LinearContainer
-
-    /* ************************************************************************ */
 
     // Copy constructor
     BinaryTreeVec(const BinaryTreeVec &);
@@ -61,12 +54,8 @@ namespace lasd
     // Move constructor
     BinaryTreeVec(BinaryTreeVec &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Destructor
     virtual ~BinaryTreeVec();
-
-    /* ************************************************************************ */
 
     // Copy assignment
     BinaryTreeVec &operator=(const BinaryTreeVec &);
@@ -74,19 +63,13 @@ namespace lasd
     // Move assignment
     BinaryTreeVec &operator=(BinaryTreeVec &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const BinaryTreeVec &) const noexcept;
     inline bool operator!=(const BinaryTreeVec &) const noexcept;
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from BinaryTree)
 
     NodeVec &Root() const override; // Override BinaryTree member (throw std::length_error when empty)
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from Container)
 
@@ -97,8 +80,6 @@ namespace lasd
 
     void FoldBreadth(const typename FoldableContainer<Data>::FoldFunctor, const void *, void *) const override;
   };
-
-  /* ************************************************************************** */
 
 }
 

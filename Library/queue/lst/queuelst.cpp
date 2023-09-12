@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     // Specific costructor
 
     template <typename Data>
@@ -11,21 +9,21 @@ namespace lasd
     {
     }
 
-    //Copy costructor
+    // Copy costructor
 
     template <typename Data>
     QueueLst<Data>::QueueLst(const QueueLst<Data> &queue) : List<Data>::List(queue)
     {
     }
 
-    //Move costructor
+    // Move costructor
 
     template <typename Data>
     QueueLst<Data>::QueueLst(QueueLst<Data> &&queue) noexcept : List<Data>::List(std::move(queue))
     {
     }
 
-    //Copy assignment
+    // Copy assignment
 
     template <typename Data>
     QueueLst<Data> &QueueLst<Data>::operator=(const QueueLst<Data> &queue)
@@ -34,7 +32,7 @@ namespace lasd
         return *this;
     }
 
-    //Move assignment
+    // Move assignment
 
     template <typename Data>
     QueueLst<Data> &QueueLst<Data>::operator=(QueueLst<Data> &&queue) noexcept
@@ -43,7 +41,7 @@ namespace lasd
         return *this;
     }
 
-    //Comparison operators
+    // Comparison operators
 
     template <typename Data>
     bool lasd::QueueLst<Data>::operator==(const QueueLst<Data> &queue) const noexcept
@@ -57,7 +55,7 @@ namespace lasd
         return !(*this == queue);
     }
 
-    //Enqueue
+    // Enqueue
 
     template <typename Data>
     void QueueLst<Data>::Enqueue(const Data &dat)
@@ -71,7 +69,7 @@ namespace lasd
         this->InsertAtBack(std::move(dat));
     }
 
-    //Head
+    // Head
 
     template <typename Data>
     Data &QueueLst<Data>::Head() const
@@ -79,7 +77,7 @@ namespace lasd
         return this->Front();
     }
 
-    //Dequeue
+    // Dequeue
 
     template <typename Data>
     void QueueLst<Data>::Dequeue()
@@ -87,7 +85,7 @@ namespace lasd
         this->RemoveFromFront();
     }
 
-    //HeadNDequeue
+    // HeadNDequeue
 
     template <typename Data>
     Data lasd::QueueLst<Data>::HeadNDequeue()
@@ -95,14 +93,12 @@ namespace lasd
         return this->FrontNRemove();
     }
 
-    //Clear
+    // Clear
 
     template <typename Data>
     void QueueLst<Data>::Clear()
     {
         List<Data>::Clear();
     }
-
-    /* ************************************************************************** */
 
 }

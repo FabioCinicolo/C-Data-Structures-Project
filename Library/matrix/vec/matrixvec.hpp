@@ -2,17 +2,11 @@
 #ifndef MATRIXVEC_HPP
 #define MATRIXVEC_HPP
 
-/* ************************************************************************** */
-
 #include "../matrix.hpp"
 #include "../../vector/vector.hpp"
 
-/* ************************************************************************** */
-
 namespace lasd
 {
-
-  /* ************************************************************************** */
 
   template <typename Data>
   class MatrixVec : virtual public Matrix<Data>, virtual protected Vector<Data>
@@ -30,12 +24,8 @@ namespace lasd
     // Specific constructor
     MatrixVec(const ulong &, const ulong &);
 
-    /* ************************************************************************ */
-
     // Default constructors
     MatrixVec() = default;
-
-    /* ************************************************************************ */
 
     // Copy constructor
     MatrixVec(const MatrixVec &);
@@ -43,12 +33,8 @@ namespace lasd
     // Move constructor
     MatrixVec(MatrixVec &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Destructor
     virtual ~MatrixVec() = default;
-
-    /* ************************************************************************ */
 
     // Copy assignment
     MatrixVec &operator=(const MatrixVec &);
@@ -56,13 +42,9 @@ namespace lasd
     // Move assignment
     MatrixVec &operator=(MatrixVec &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const MatrixVec &) const noexcept;
     inline bool operator!=(const MatrixVec &) const noexcept;
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from Matrix)
 
@@ -73,13 +55,10 @@ namespace lasd
 
     Data &operator()(const ulong &, const ulong &) override;             // Override Matrix member (mutable access to the element; throw out_of_range when out of range)
     const Data &operator()(const ulong &, const ulong &) const override; // Override Matrix member (immutable access to the element; throw out_of_range when out of range)
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from Container)
 
     void Clear() override; // Override Container member
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from MappableContainer)
 
@@ -88,16 +67,12 @@ namespace lasd
     // type MapPreOrder(arguments) specifiers; // Override MappableContainer member
     // type MapPostOrder(arguments) specifiers; // Override MappableContainer member
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from FoldableContainer)
     using Vector<Data>::FoldPreOrder;
     using Vector<Data>::FoldPostOrder;
     // type FoldPreOrder(arguments) specifiers; // Override FoldableContainer member
     // type FoldPostOrder(arguments) specifiers; // Override FoldableContainer member
   };
-
-  /* ************************************************************************** */
 
 }
 

@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     template <typename Data>
     Data &BinaryTreeVec<Data>::NodeVec::Element() noexcept
     {
@@ -172,7 +170,5 @@ namespace lasd
             fun(((*btreevecptr)[i])->Element(), par, acc);
         }
     }
-
-    /* ************************************************************************** */
 
 }

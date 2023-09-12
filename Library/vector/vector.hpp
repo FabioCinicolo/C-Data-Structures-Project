@@ -2,8 +2,6 @@
 #ifndef VECTOR_HPP
 #define VECTOR_HPP
 
-/* ************************************************************************** */
-
 #include "../container/container.hpp"
 typedef unsigned long ulong;
 
@@ -29,13 +27,9 @@ namespace lasd
     // Default constructor
     Vector() = default;
 
-    /* ************************************************************************ */
-
     // Specific constructors
     Vector(const ulong);                   // A vector with a given initial dimension
     Vector(const LinearContainer<Data> &); // A vector obtained from a LinearContainer
-
-    /* ************************************************************************ */
 
     // Copy constructor
     Vector(const Vector &);
@@ -43,12 +37,8 @@ namespace lasd
     // Move constructor
     Vector(Vector &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Destructor
     virtual ~Vector();
-
-    /* ************************************************************************ */
 
     // Copy assignment
     Vector &operator=(const Vector &);
@@ -56,25 +46,17 @@ namespace lasd
     // Move assignment
     Vector &operator=(Vector &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const Vector &) const noexcept;
     inline bool operator!=(const Vector &) const noexcept;
-
-    /* ************************************************************************ */
 
     // Specific member functions
 
     void Resize(const ulong); // Resize the vector to a given size
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from Container)
 
     void Clear() override; // Override Container member
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from LinearContainer)
 
@@ -83,16 +65,12 @@ namespace lasd
 
     Data &operator[](const ulong) const override; // Override LinearContainer member (must throw std::out_of_range when out of range)
 
-    /* ************************************************************************ */
-
     // Specific member functions (inherited from MappableContainer)
 
     using typename MappableContainer<Data>::MapFunctor;
 
     void MapPreOrder(const MapFunctor, void *) override;  // Override MappableContainer member
     void MapPostOrder(const MapFunctor, void *) override; // Override MappableContainer member
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from FoldableContainer)
 
@@ -101,8 +79,6 @@ namespace lasd
     void FoldPreOrder(const FoldFunctor, const void *, void *) const override;  // Override FoldableContainer member
     void FoldPostOrder(const FoldFunctor, const void *, void *) const override; // Override FoldableContainer member
   };
-
-  /* ************************************************************************** */
 
 }
 

@@ -2,18 +2,16 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-    //NODE
+    // NODE
 
-    //Node specific constructor
+    // Node specific constructor
     template <typename Data>
     List<Data>::Node::Node(const Data &dat)
     {
         data = dat;
     }
 
-    /* ************************************************************************** */
-    //Node copy constructor
+    // Node copy constructor
     template <typename Data>
     List<Data>::Node::Node(const List<Data>::Node &nod)
     {
@@ -21,8 +19,7 @@ namespace lasd
         nextptr = nod.nextptr;
     }
 
-    /* ************************************************************************** */
-    //Node move constructor
+    // Node move constructor
     template <typename Data>
     List<Data>::Node::Node(List<Data>::Node &&nod) noexcept
     {
@@ -36,8 +33,7 @@ namespace lasd
         delete nextptr;
     }
 
-    /* ************************************************************************** */
-    //Node comparison operators
+    // Node comparison operators
     template <class Data>
     bool List<Data>::Node::operator==(const List<Data>::Node &nod) const noexcept
     {
@@ -54,10 +50,9 @@ namespace lasd
         return !(*this == nod);
     }
 
-    /* ************************************************************************** */
-    //LIST
+    // LIST
 
-    //Specific constructor
+    // Specific constructor
     template <typename Data>
     List<Data>::List(const LinearContainer<Data> &con)
     {
@@ -67,9 +62,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
-    //Copy constructor
+    // Copy constructor
     template <typename Data>
     List<Data>::List(const List<Data> &list)
     {
@@ -84,8 +77,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-    //Move constructor
+    // Move constructor
     template <typename Data>
     List<Data>::List(List &&list) noexcept
     {
@@ -94,15 +86,13 @@ namespace lasd
         std::swap(tail, list.tail);
     }
 
-    /* ************************************************************************** */
-    //Destructor
+    // Destructor
     template <typename Data>
     List<Data>::~List()
     {
         delete head;
     }
 
-    /* ************************************************************************** */
     // Copy assignment
     template <typename Data>
     List<Data> &List<Data>::operator=(const List<Data> &list)
@@ -113,7 +103,6 @@ namespace lasd
         return *this;
     }
 
-    /* ************************************************************************** */
     // Move assignment
     template <class Data>
     List<Data> &List<Data>::operator=(List<Data> &&list) noexcept
@@ -124,8 +113,7 @@ namespace lasd
         return *this;
     }
 
-    /* ************************************************************************** */
-    //Comparison operators
+    // Comparison operators
 
     template <typename Data>
     bool List<Data>::operator==(const List<Data> &list) const noexcept
@@ -161,8 +149,7 @@ namespace lasd
         return !((*this) == list);
     }
 
-    /* ************************************************************************** */
-    //Insert at front (copy)
+    // Insert at front (copy)
 
     template <typename Data>
     void List<Data>::InsertAtFront(const Data &dat)
@@ -181,7 +168,7 @@ namespace lasd
         size = size + 1;
     }
 
-    //Insert at front (move)
+    // Insert at front (move)
 
     template <typename Data>
     void List<Data>::InsertAtFront(Data &&dat) noexcept
@@ -200,7 +187,7 @@ namespace lasd
         size = size + 1;
     }
 
-    //Remove from front
+    // Remove from front
 
     template <typename Data>
     void List<Data>::RemoveFromFront()
@@ -220,7 +207,7 @@ namespace lasd
         }
     }
 
-    //Remove front and returns it
+    // Remove front and returns it
 
     template <typename Data>
     Data List<Data>::FrontNRemove()
@@ -238,9 +225,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
-    //Insert at back (copy)
+    // Insert at back (copy)
 
     template <typename Data>
     void List<Data>::InsertAtBack(const Data &dat)
@@ -259,7 +244,7 @@ namespace lasd
         size = size + 1;
     }
 
-    //Insert at back (move)
+    // Insert at back (move)
 
     template <typename Data>
     void List<Data>::InsertAtBack(Data &&dat) noexcept
@@ -278,10 +263,7 @@ namespace lasd
         size = size + 1;
     }
 
-    /* ************************************************************************** */
-
-    //Clear method overridden from Container
-
+    // Clear method overridden from Container
     template <typename Data>
     void List<Data>::Clear()
     {
@@ -291,9 +273,7 @@ namespace lasd
         size = 0;
     }
 
-    /* ************************************************************************** */
-
-    //Front
+    // Front
     template <typename Data>
     Data &List<Data>::Front() const
     {
@@ -307,7 +287,7 @@ namespace lasd
         }
     }
 
-    //Back
+    // Back
     template <typename Data>
     Data &List<Data>::Back() const
     {
@@ -320,7 +300,6 @@ namespace lasd
             throw std::length_error("Access to an empty string.");
         }
     }
-    /* ************************************************************************** */
 
     // [] operator overridden from LinearContainer
     template <typename Data>
@@ -341,10 +320,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
     // Specific member functions (inherited from FoldableContainer)
-
     template <class Data>
     void List<Data>::MapPreOrder(const MapFunctor fun, void *par)
     {
@@ -369,10 +345,7 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
-
     // Auxiliary member functions (for MappableContainer)
-
     template <typename Data>
     void List<Data>::FoldPreOrder(const FoldFunctor fun, const void *par, void *acc) const
     {
@@ -397,5 +370,4 @@ namespace lasd
         }
     }
 
-    /* ************************************************************************** */
 }

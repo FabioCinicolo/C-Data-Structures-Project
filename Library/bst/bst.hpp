@@ -2,16 +2,11 @@
 #ifndef BST_HPP
 #define BST_HPP
 
-/* ************************************************************************** */
-
 #include "../binarytree/lnk/binarytreelnk.hpp"
 typedef unsigned long ulong;
-/* ************************************************************************** */
 
 namespace lasd
 {
-
-  /* ************************************************************************** */
 
   template <typename Data>
   class BST : virtual public BinaryTreeLnk<Data>
@@ -29,12 +24,8 @@ namespace lasd
     // Default constructor
     BST() = default;
 
-    /* ************************************************************************ */
-
     // Specific constructors
     BST(const LinearContainer<Data> &);
-
-    /* ************************************************************************ */
 
     // Copy constructor
     BST(const BST &);
@@ -42,12 +33,8 @@ namespace lasd
     // Move constructor
     BST(BST &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Destructor
     virtual ~BST() = default;
-
-    /* ************************************************************************ */
 
     // Copy assignment
     BST &operator=(const BST &);
@@ -55,19 +42,15 @@ namespace lasd
     // Move assignment
     BST &operator=(BST &&) noexcept;
 
-    /* ************************************************************************ */
-
     // Comparison operators
     bool operator==(const BST &) const noexcept;
     inline bool operator!=(const BST &) const noexcept;
-
-    /* ************************************************************************ */
 
     // Specific member functions
 
     void Insert(const Data &) noexcept; // Copy of the value
     void Insert(Data &&) noexcept;      // Move of the value
-    void Remove(const Data &) noexcept; //Remove of the node containing the value
+    void Remove(const Data &) noexcept; // Remove of the node containing the value
 
     const Data &Min() const; // (concrete function must throw std::length_error when empty)
     Data MinNRemove();       // (concrete function must throw std::length_error when empty)
@@ -84,8 +67,6 @@ namespace lasd
     const Data &Successor(const Data &) const; // (concrete function must throw std::length_error when not found)
     Data SuccessorNRemove(const Data &);       // (concrete function must throw std::length_error when not found)
     void RemoveSuccessor(const Data &);        // (concrete function must throw std::length_error when not found)
-
-    /* ************************************************************************ */
 
     // Specific member functions (inherited from TestableContainer)
 
@@ -118,8 +99,6 @@ namespace lasd
     NodeLnk **FindPointerToSuccessor(NodeLnk *&, const Data &) noexcept;
     NodeLnk *const *FindPointerToSuccessor(NodeLnk *const &, const Data &) const noexcept;
   };
-
-  /* ************************************************************************** */
 
 }
 

@@ -2,8 +2,6 @@
 namespace lasd
 {
 
-    /* ************************************************************************** */
-
     template <typename Data>
     inline const ulong &lasd::Matrix<Data>::RowNumber() const noexcept
     {
@@ -15,7 +13,5 @@ namespace lasd
     {
         return cols;
     }
-
-    /* ************************************************************************** */
 
 }
